@@ -28,6 +28,8 @@ var answerOptionButton2 = document.createElement("button");
 var answerOptionButton3 = document.createElement("button");
 var answerOptionButton4 = document.createElement("button");
 answerOptionsLi.append(answerOptionButton1, answerOptionButton2, answerOptionButton3, answerOptionButton4);
+quizEl.append(questionEl);
+quizEl.append(answerOptionsLi);
 
 // current score
 var currentScoreEl = document.getElementById("score");
@@ -81,12 +83,12 @@ returnToStartEl.addEventListener("click", function() {
 startQuizEl.addEventListener("click", function() {
     // clear startEl screen, append quizEl screen
     startEl.remove();
-    body.appendChild(quizEl);
     body.appendChild(timerEl);
+    body.appendChild(quizEl);
     body.appendChild(currentScoreEl);
     countdown();
     questionOne();
-    body.appendChild(currentScoreEl);
+    
     //quizEl.appendChild(questions);
     body.appendChild(returnToStartEl);
     
@@ -114,148 +116,202 @@ function questionOne() {
     answerOptionButton2.textContent = "N";
     answerOptionButton3.textContent = "P";
     answerOptionButton4.textContent = "Z";
-    body.appendChild(questionEl);
-    body.appendChild(answerOptionsLi);
-    answerOptionButton1.addEventListener("click", function() {
+    var q1a1 = answerOptionButton1;
+    var q1a2 = answerOptionButton2;
+    var q1a3 = answerOptionButton3;
+    var q1a4 = answerOptionButton4;
+    q1a1.addEventListener("click", function() {
         body.appendChild(answerCorrectConfirmationEl);
         currentScoreEl.textContent = "Your Score: " + (currentScore += 5);
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quizEl.remove();
+        
+        //answerOptionButton1.remove();
+        //answerOptionButton2.remove();
+        //answerOptionButton3.remove();
+        //answerOptionButton4.remove();
         questionTwo();
     })
-    answerOptionButton2.addEventListener("click", function() {
+    q1a2.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quizEl.remove();
+        
+        //answerOptionButton1.remove();
+        //answerOptionButton2.remove();
+        //answerOptionButton3.remove();
+        //answerOptionButton4.remove();
         questionTwo();
     })
-    answerOptionButton3.addEventListener("click", function() {
+    q1a3.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quizEl.remove();
+        
+        //answerOptionButton1.remove();
+        //answerOptionButton2.remove();
+        //answerOptionButton3.remove();
+        //answerOptionButton4.remove();
         questionTwo();
     })
-    answerOptionButton4.addEventListener("click", function() {
+    q1a4.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quizEl.remove();
+        
+        //answerOptionButton1.remove();
+        //answerOptionButton2.remove();
+        //answerOptionButton3.remove();
+        //answerOptionButton4.remove();
         questionTwo();
     })
 };
 
 function questionTwo() {
-    questionEl.textContent = "What is the first letter of the alphabet?";
-    answerOptionButton1.textContent = "A";
-    answerOptionButton2.textContent = "N";
-    answerOptionButton3.textContent = "P";
-    answerOptionButton4.textContent = "Z";
-    body.appendChild(questionEl);
-    body.appendChild(answerOptionsLi);
-    answerOptionButton1.addEventListener("click", function() {
+    var quiz2El = document.createElement("div");
+    var question2El = document.createElement("h2");
+    var answerOptions2Li = document.createElement("ul");
+    var q2a1 = document.createElement("button");
+    var q2a2 = document.createElement("button");
+    var q2a3 = document.createElement("button");
+    var q2a4 = document.createElement("button");
+    answerOptions2Li.append(q2a1, q2a2, q2a3, q2a4);
+    quiz2El.append(question2El);
+    quiz2El.append(answerOptions2Li);
+    question2El.textContent = "What is the last letter of the alphabet?";
+    q2a1.textContent = "A";
+    q2a2.textContent = "N";
+    q2a3.textContent = "P";
+    q2a4.textContent = "Z";
+    
+    
+    body.appendChild(quiz2El);
+    q2a1.addEventListener("click", function() {
+        body.appendChild(answerIncorrectConfirmationEl);
+        timeRemaining -= 5;
+        
+        quiz2El.remove();
+        
+        questionThree();
+    })
+    q2a2.addEventListener("click", function() {
+        body.appendChild(answerIncorrectConfirmationEl);
+        timeRemaining -= 5;
+        quiz2El.remove();
+        
+        questionThree();
+    })
+    q2a3.addEventListener("click", function() {
+        body.appendChild(answerIncorrectConfirmationEl);
+        timeRemaining -= 5;
+        quiz2El.remove();
+        
+        questionThree();
+    })
+    q2a4.addEventListener("click", function() {
         body.appendChild(answerCorrectConfirmationEl);
         currentScoreEl.textContent = "Your Score: " + (currentScore += 5);
-        questionEl.remove();
-        answerOptionsLi.remove();
+        
+        quiz2El.remove();
+        
         questionThree();
-    })
-    answerOptionButton2.addEventListener("click", function() {
-        body.appendChild(answerIncorrectConfirmationEl);
-        timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
-        questionThree();
-    })
-    answerOptionButton3.addEventListener("click", function() {
-        body.appendChild(answerIncorrectConfirmationEl);
-        timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
-        questionThree();
-    })
-    answerOptionButton4.addEventListener("click", function() {
-        body.appendChild(answerIncorrectConfirmationEl);
-        timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
-        questionThree();
+        console.log(currentScore);
     })
 };
 
 function questionThree() {
-    questionEl.textContent = "What is the first letter of the alphabet?";
-    answerOptionButton1.textContent = "A";
-    answerOptionButton2.textContent = "N";
-    answerOptionButton3.textContent = "P";
-    answerOptionButton4.textContent = "Z";
-    body.appendChild(questionEl);
-    body.appendChild(answerOptionsLi);
-    answerOptionButton1.addEventListener("click", function() {
+    var quiz3El = document.createElement("div");
+    var question3El = document.createElement("h2");
+    var answerOptions3Li = document.createElement("ul");
+    var q3a1 = document.createElement("button");
+    var q3a2 = document.createElement("button");
+    var q3a3 = document.createElement("button");
+    var q3a4 = document.createElement("button");
+    answerOptions3Li.append(q3a1, q3a2, q3a3, q3a4);
+    quiz3El.append(question3El);
+    quiz3El.append(answerOptions3Li);
+    question3El.textContent = "How old are you?";
+    q3a1.textContent = "38";
+    q3a2.textContent = "42";
+    q3a3.textContent = "58";
+    q3a4.textContent = "17";
+    body.appendChild(quiz3El);
+    
+    q3a1.addEventListener("click", function() {
+        body.appendChild(answerIncorrectConfirmationEl);
+        timeRemaining -= 5;
+        quiz3El.remove();
+        
+        questionFour();
+    })
+    q3a2.addEventListener("click", function() {
         body.appendChild(answerCorrectConfirmationEl);
         currentScoreEl.textContent = "Your Score: " + (currentScore += 5);
-        questionEl.remove();
-        answerOptionsLi.remove();
+        
+        quiz3El.remove();
+        
         questionFour();
     })
-    answerOptionButton2.addEventListener("click", function() {
+    q3a3.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quiz3El.remove();
+        
         questionFour();
     })
-    answerOptionButton3.addEventListener("click", function() {
+    q3a4.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
-        questionFour();
-    })
-    answerOptionButton4.addEventListener("click", function() {
-        body.appendChild(answerIncorrectConfirmationEl);
-        timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quiz3El.remove();
+        
         questionFour();
     })
 };
 
 function questionFour() {
-    questionEl.textContent = "What is the first letter of the alphabet?";
-    answerOptionButton1.textContent = "A";
-    answerOptionButton2.textContent = "N";
-    answerOptionButton3.textContent = "P";
-    answerOptionButton4.textContent = "Z";
-    body.appendChild(questionEl);
-    body.appendChild(answerOptionsLi);
-    answerOptionButton1.addEventListener("click", function() {
+    var quiz4El = document.createElement("div");
+    var question4El = document.createElement("h2");
+    var answerOptions4Li = document.createElement("ul");
+    var q4a1 = document.createElement("button");
+    var q4a2 = document.createElement("button");
+    var q4a3 = document.createElement("button");
+    var q4a4 = document.createElement("button");
+    answerOptions4Li.append(q4a1, q4a2, q4a3, q4a4);
+    quiz4El.append(question4El);
+    quiz4El.append(answerOptions4Li);
+    question4El.textContent = "What is the capital of Nebraska?";
+    q4a1.textContent = "Omaha";
+    q4a2.textContent = "Grand Island";
+    q4a3.textContent = "Lincoln";
+    q4a4.textContent = "Brunswick";
+    body.appendChild(quiz4El);
+    
+    q4a1.addEventListener("click", function() {
+        body.appendChild(answerIncorrectConfirmationEl);
+        timeRemaining -= 5;
+        quiz4El.remove();
+        
+        questionFive();
+    })
+    q4a2.addEventListener("click", function() {
+        body.appendChild(answerIncorrectConfirmationEl);
+        timeRemaining -= 5;
+        quiz4El.remove();
+        
+        questionFive();
+    })
+    q4a3.addEventListener("click", function() {
         body.appendChild(answerCorrectConfirmationEl);
         currentScoreEl.textContent = "Your Score: " + (currentScore += 5);
-        questionEl.remove();
-        answerOptionsLi.remove();
+        
+        quiz4El.remove();
+        
         questionFive();
     })
-    answerOptionButton2.addEventListener("click", function() {
+    q4a4.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
-        questionFive();
-    })
-    answerOptionButton3.addEventListener("click", function() {
-        body.appendChild(answerIncorrectConfirmationEl);
-        timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
-        questionFive();
-    })
-    answerOptionButton4.addEventListener("click", function() {
-        body.appendChild(answerIncorrectConfirmationEl);
-        timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quiz4El.remove();
+        
         questionFive();
     })
 };
@@ -263,36 +319,46 @@ function questionFour() {
 
 
 function questionFive() {
-    questionEl.textContent = "What is the first letter of the alphabet?";
-    answerOptionButton1.textContent = "A";
-    answerOptionButton2.textContent = "N";
-    answerOptionButton3.textContent = "P";
-    answerOptionButton4.textContent = "Z";
-    body.appendChild(questionEl);
-    body.appendChild(answerOptionsLi);
-    answerOptionButton1.addEventListener("click", function() {
+    var quiz5El = document.createElement("div");
+    var question5El = document.createElement("h2");
+    var answerOptions5Li = document.createElement("ul");
+    var q5a1 = document.createElement("button");
+    var q5a2 = document.createElement("button");
+    var q5a3 = document.createElement("button");
+    var q5a4 = document.createElement("button");
+    answerOptions5Li.append(q5a1, q5a2, q5a3, q5a4);
+    quiz5El.append(question5El);
+    quiz5El.append(answerOptions5Li);
+    question5El.textContent = "What is the first letter of the alphabet?";
+    q5a1.textContent = "A";
+    q5a2.textContent = "N";
+    q5a3.textContent = "P";
+    q5a4.textContent = "Z";
+    body.appendChild(quiz5El);
+    
+    q5a1.addEventListener("click", function() {
         body.appendChild(answerCorrectConfirmationEl);
         currentScoreEl.textContent = "Your Score: " + (currentScore += 5);
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quiz5El.remove();
+        
     })
-    answerOptionButton2.addEventListener("click", function() {
+    q5a2.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quiz5El.remove();
+        
     })
-    answerOptionButton3.addEventListener("click", function() {
+    q5a3.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quiz5El.remove();
+        
     })
-    answerOptionButton4.addEventListener("click", function() {
+    q5a4.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
-        questionEl.remove();
-        answerOptionsLi.remove();
+        quiz5El.remove();
+        
     })
 };
 
