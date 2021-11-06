@@ -7,8 +7,11 @@ var startQuizEl = document.createElement("button");
 
 // high scores screen
 var highScoresEl = document.createElement("div");
+var highScore = localStorage.getItem("highScore");;
+var highScores = [];
 // high scores listed
 var highScoresChartEl = document.createElement("ol");
+
 var scoreLi1 = document.createElement("li");
 var scoreLi2 = document.createElement("li");
 var scoreLi3 = document.createElement("li");
@@ -30,6 +33,42 @@ var answerOptionButton4 = document.createElement("button");
 answerOptionsLi.append(answerOptionButton1, answerOptionButton2, answerOptionButton3, answerOptionButton4);
 quizEl.append(questionEl);
 quizEl.append(answerOptionsLi);
+
+// quiz questions section 2
+var quiz2El = document.createElement("div");
+var question2El = document.createElement("h2");
+var answerOptions2Li = document.createElement("ul");
+var q2a1 = document.createElement("button");
+var q2a2 = document.createElement("button");
+var q2a3 = document.createElement("button");
+var q2a4 = document.createElement("button");
+
+// quiz questions section 3
+var quiz3El = document.createElement("div");
+var question3El = document.createElement("h2");
+var answerOptions3Li = document.createElement("ul");
+var q3a1 = document.createElement("button");
+var q3a2 = document.createElement("button");
+var q3a3 = document.createElement("button");
+var q3a4 = document.createElement("button");
+
+// quiz questions section 4
+var quiz4El = document.createElement("div");
+var question4El = document.createElement("h2");
+var answerOptions4Li = document.createElement("ul");
+var q4a1 = document.createElement("button");
+var q4a2 = document.createElement("button");
+var q4a3 = document.createElement("button");
+var q4a4 = document.createElement("button");
+
+// quiz questions section 5
+var quiz5El = document.createElement("div");
+var question5El = document.createElement("h2");
+var answerOptions5Li = document.createElement("ul");
+var q5a1 = document.createElement("button");
+var q5a2 = document.createElement("button");
+var q5a3 = document.createElement("button");
+var q5a4 = document.createElement("button");
 
 // current score
 var currentScoreEl = document.getElementById("score");
@@ -94,28 +133,14 @@ startQuizEl.addEventListener("click", function() {
     
 });
 
-// timer counts down from 60
-function countdown() {
-    var timeInterval = setInterval(function () {
-        if (timeRemaining > 1) {
-            timerEl.textContent = "Time Remaining: " + timeRemaining + " seconds";
-            timeRemaining--;
-        } else if (timeRemaining === 1) {
-            timerEl.textContent = "Time Remaining: " + timeRemaining + " second";
-            timeRemaining--;
-        } else {
-            timerEl.textContent = "Time is up!";
-            clearInterval(timeInterval);
-        }
-    }, 1000);
-};
+
 
 function questionOne() {
-    questionEl.textContent = "What is the first letter of the alphabet?";
-    answerOptionButton1.textContent = "A";
-    answerOptionButton2.textContent = "N";
-    answerOptionButton3.textContent = "P";
-    answerOptionButton4.textContent = "Z";
+    questionEl.textContent = "Commonly used data types DO NOT include:";
+    answerOptionButton1.textContent = "alerts";
+    answerOptionButton2.textContent = "strings";
+    answerOptionButton3.textContent = "booleans";
+    answerOptionButton4.textContent = "numbers";
     var q1a1 = answerOptionButton1;
     var q1a2 = answerOptionButton2;
     var q1a3 = answerOptionButton3;
@@ -125,10 +150,7 @@ function questionOne() {
         currentScoreEl.textContent = "Your Score: " + (currentScore += 5);
         quizEl.remove();
         
-        //answerOptionButton1.remove();
-        //answerOptionButton2.remove();
-        //answerOptionButton3.remove();
-        //answerOptionButton4.remove();
+        
         questionTwo();
     })
     q1a2.addEventListener("click", function() {
@@ -136,10 +158,7 @@ function questionOne() {
         timeRemaining -= 5;
         quizEl.remove();
         
-        //answerOptionButton1.remove();
-        //answerOptionButton2.remove();
-        //answerOptionButton3.remove();
-        //answerOptionButton4.remove();
+        
         questionTwo();
     })
     q1a3.addEventListener("click", function() {
@@ -147,10 +166,7 @@ function questionOne() {
         timeRemaining -= 5;
         quizEl.remove();
         
-        //answerOptionButton1.remove();
-        //answerOptionButton2.remove();
-        //answerOptionButton3.remove();
-        //answerOptionButton4.remove();
+        
         questionTwo();
     })
     q1a4.addEventListener("click", function() {
@@ -158,30 +174,21 @@ function questionOne() {
         timeRemaining -= 5;
         quizEl.remove();
         
-        //answerOptionButton1.remove();
-        //answerOptionButton2.remove();
-        //answerOptionButton3.remove();
-        //answerOptionButton4.remove();
+        
         questionTwo();
     })
 };
 
 function questionTwo() {
-    var quiz2El = document.createElement("div");
-    var question2El = document.createElement("h2");
-    var answerOptions2Li = document.createElement("ul");
-    var q2a1 = document.createElement("button");
-    var q2a2 = document.createElement("button");
-    var q2a3 = document.createElement("button");
-    var q2a4 = document.createElement("button");
+    
     answerOptions2Li.append(q2a1, q2a2, q2a3, q2a4);
     quiz2El.append(question2El);
     quiz2El.append(answerOptions2Li);
-    question2El.textContent = "What is the last letter of the alphabet?";
-    q2a1.textContent = "A";
-    q2a2.textContent = "N";
-    q2a3.textContent = "P";
-    q2a4.textContent = "Z";
+    question2El.textContent = "Arrays in JavaScript can be used to store ______.";
+    q2a1.textContent = "numbers and strings";
+    q2a2.textContent = "other arrays";
+    q2a3.textContent = "booleans";
+    q2a4.textContent = "all of the above";
     
     
     body.appendChild(quiz2El);
@@ -219,21 +226,15 @@ function questionTwo() {
 };
 
 function questionThree() {
-    var quiz3El = document.createElement("div");
-    var question3El = document.createElement("h2");
-    var answerOptions3Li = document.createElement("ul");
-    var q3a1 = document.createElement("button");
-    var q3a2 = document.createElement("button");
-    var q3a3 = document.createElement("button");
-    var q3a4 = document.createElement("button");
+    
     answerOptions3Li.append(q3a1, q3a2, q3a3, q3a4);
     quiz3El.append(question3El);
     quiz3El.append(answerOptions3Li);
-    question3El.textContent = "How old are you?";
-    q3a1.textContent = "38";
-    q3a2.textContent = "42";
-    q3a3.textContent = "58";
-    q3a4.textContent = "17";
+    question3El.textContent = "The condition of an if/else statement is enclosed within _______.";
+    q3a1.textContent = "curly brackets";
+    q3a2.textContent = "parentheses";
+    q3a3.textContent = "quotes";
+    q3a4.textContent = "square brackets";
     body.appendChild(quiz3El);
     
     q3a1.addEventListener("click", function() {
@@ -268,21 +269,15 @@ function questionThree() {
 };
 
 function questionFour() {
-    var quiz4El = document.createElement("div");
-    var question4El = document.createElement("h2");
-    var answerOptions4Li = document.createElement("ul");
-    var q4a1 = document.createElement("button");
-    var q4a2 = document.createElement("button");
-    var q4a3 = document.createElement("button");
-    var q4a4 = document.createElement("button");
+    
     answerOptions4Li.append(q4a1, q4a2, q4a3, q4a4);
     quiz4El.append(question4El);
     quiz4El.append(answerOptions4Li);
-    question4El.textContent = "What is the capital of Nebraska?";
-    q4a1.textContent = "Omaha";
-    q4a2.textContent = "Grand Island";
-    q4a3.textContent = "Lincoln";
-    q4a4.textContent = "Brunswick";
+    question4El.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:";
+    q4a1.textContent = "JavaScript";
+    q4a2.textContent = "terminal / bash";
+    q4a3.textContent = "console.log";
+    q4a4.textContent = "for loops";
     body.appendChild(quiz4El);
     
     q4a1.addEventListener("click", function() {
@@ -319,159 +314,86 @@ function questionFour() {
 
 
 function questionFive() {
-    var quiz5El = document.createElement("div");
-    var question5El = document.createElement("h2");
-    var answerOptions5Li = document.createElement("ul");
-    var q5a1 = document.createElement("button");
-    var q5a2 = document.createElement("button");
-    var q5a3 = document.createElement("button");
-    var q5a4 = document.createElement("button");
+    
     answerOptions5Li.append(q5a1, q5a2, q5a3, q5a4);
     quiz5El.append(question5El);
     quiz5El.append(answerOptions5Li);
-    question5El.textContent = "What is the first letter of the alphabet?";
-    q5a1.textContent = "A";
-    q5a2.textContent = "N";
-    q5a3.textContent = "P";
-    q5a4.textContent = "Z";
+    question5El.textContent = "String values must be enclosed within ______ when being assigned to variables.";
+    q5a1.textContent = "quotes";
+    q5a2.textContent = "commas";
+    q5a3.textContent = "curly brackets";
+    q5a4.textContent = "parentheses";
     body.appendChild(quiz5El);
     
     q5a1.addEventListener("click", function() {
         body.appendChild(answerCorrectConfirmationEl);
-        currentScoreEl.textContent = "Your Score: " + (currentScore += 5);
+        currentScoreEl.textContent = "Your Score: " + (currentScore += 5 + timeRemaining);
         quiz5El.remove();
+        timerEl.remove();
+        quizOver();
+        
         
     })
     q5a2.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
+        currentScoreEl.textContent = "Your Score: " + (currentScore += 5 + timeRemaining);
         quiz5El.remove();
+        timerEl.remove();
+        quizOver();
         
     })
     q5a3.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
+        currentScoreEl.textContent = "Your Score: " + (currentScore += 5 + timeRemaining);
         quiz5El.remove();
+        timerEl.remove();
+        quizOver();
         
     })
     q5a4.addEventListener("click", function() {
         body.appendChild(answerIncorrectConfirmationEl);
         timeRemaining -= 5;
+        currentScoreEl.textContent = "Your Score: " + (currentScore += 5 + timeRemaining);
         quiz5El.remove();
+        timerEl.remove();
+        quizOver();
         
     })
 };
 
+// timer counts down from 60
+function countdown() {
+    var timeInterval = setInterval(function () {
+        if (timeRemaining > 1) {
+            timerEl.textContent = "Time Remaining: " + timeRemaining + " seconds";
+            timeRemaining--;
+        } else if (timeRemaining === 1) {
+            timerEl.textContent = "Time Remaining: " + timeRemaining + " second";
+            timeRemaining--;
+        } else {
+            timerEl.textContent = "Time is up!";
+            clearInterval(timeInterval);
+            quizEl.remove();
+            quiz2El.remove();
+            quiz3El.remove();
+            quiz4El.remove();
+            quiz5El.remove();
+            quizOver();
+        }
+    }, 1000);
+};
 
-
-
-/*function quizLoop() {
-    // questions and answers array
-    var questions = [
-        {
-            question: questionEl.textContent = "dhjkajdhf",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton2 = true
-        },
-        {   
-            question: questionEl.textContent = "dajdfjhjk",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton4 = true
-        },
-        {
-            question: questionEl.textContent = "hfrydfk",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton1 = true
-        },
-        {
-            question: questionEl.textContent = "hhghgfdffk",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton2 = true
-        },
-        {
-            question: questionEl.textContent = "utffdfk",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton3 = true
-        },
-        {
-            question: questionEl.textContent = "wqwrydfk",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton4 = true
-        },
-        {
-            question: questionEl.textContent = "xdsrydfk",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton1 = true
-        },
-        {
-            question: questionEl.textContent = "bvxzrydfk",
-            answers: {
-                answer1: answerOptionButton1.textContent = "a",
-                answer2: answerOptionButton2.textContent = "b",
-                answer3: answerOptionButton3.textContent = "c",
-                answer4: answerOptionButton4.textContent = "d"
-            },
-            correctAnswer: answerOptionButton3 = true
-        },
-    ];
-
-    // for loop for the questions array
-    for (i = 0; i < questions.length; i++) {
-        // append questions onto quizEl, quizEl onto body
-        body.appendChild(quizEl);
-        // if correct answer button is clicked
-        //if ()
-        // display 'correct' messsage
-
-        // add 5 points to the score
-
-        // else incorrect button is clicked
-
-        // display 'incorrect' message
-
-        // subtract 5 seconds from timer
-
-    };
-
-    return questions;
-
-};*/
-
-
-
-
+function quizOver() {
+    timerEl.remove();
+    if (currentScore > highScore) {
+        var congratsMessage = document.createElement("h2");
+        congratsMessage.textContent = "Congratulations! Your score of " + currentScore + " is now the high score!";
+        body.appendChild(congratsMessage);
+        
+        localStorage.setItem("highScore", JSON.stringify(currentScore));
+        currentScore = JSON.parse(currentScore);
+        scoreLi1.textContent = currentScore;
+    }
+};
