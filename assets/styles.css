@@ -1,3 +1,37 @@
 * {
     background-color: #555555;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.welcome {
+    text-align: center;
+}
+
+.welcome-text {
+    font-size: 40px;
+}
+
+.score-timer-container {
+    display: flex;
+}
+
+.score {
+    text-align: left;
+}
+
+.timer {
+    text-align: right;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    margin: auto, 45px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
